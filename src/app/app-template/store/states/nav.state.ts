@@ -14,6 +14,9 @@ const navArray: NavArrayInterface[] = [
   },
   {
     name: 'Продаж'
+  },
+  {
+    name: 'Подобово'
   }
 ]
 

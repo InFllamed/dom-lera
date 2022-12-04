@@ -1,6 +1,11 @@
-<div class="select">
+<div class="select"
+     appClickOutside
+     [isActiveClickOutside]="isShowList"
+     (clickOutside)="isShowList = false"
+>
 
-  <div (click)="isShowList = !isShowList" class="select__wrapper">
+  <div (click)="isShowList = !isShowList"
+       class="select__wrapper">
 
     <div class="select__value">
 

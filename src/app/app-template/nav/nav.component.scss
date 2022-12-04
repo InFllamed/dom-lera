@@ -12,6 +12,10 @@
 
   &__item {
     cursor: pointer;
+
+    &:hover {
+      color: #fd8602;
+    }
   }
 
   &__name {

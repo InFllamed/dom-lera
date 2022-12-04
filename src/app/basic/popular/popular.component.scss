@@ -1,0 +1,117 @@
+.popular {
+  height: 100%;
+  width: 100%;
+
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+    padding: 60px 0;
+  }
+
+  &__container {
+    max-width: 1440px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    color: #333333;
+  }
+
+  &__tabs {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    &-item {
+      line-height: 50px;
+      padding: 0 35px;
+      color: #333333;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      -webkit-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+
+      &--active {
+        color: #fd8602;
+        background-color: #fff;
+        -webkit-box-shadow: 0 4px 15px rgb(0 0 0 / 10%);
+        box-shadow: 0 4px 15px rgb(0 0 0 / 10%);
+        border-radius: 50px;
+      }
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px
+  }
+
+  &__item {
+    box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(33.333333% - 20px);
+
+    &-img {
+      max-height: 250px;
+      min-height: 250px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &-block {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    &-name {
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+      font-weight: 700;
+      margin-bottom: 10px;
+
+      &:hover {
+        color: #fd8602;
+      }
+    }
+
+    &-description {
+      font-size: 14px;
+      line-height: 27px;
+      color: #333;
+    }
+
+    &-footer {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-m2 {
+      font-weight: 500;
+    }
+
+    &-price {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+}

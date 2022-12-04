@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {AppTemplateComponent} from "./app-template.component";
 import {BasicComponent} from "../basic/basic.component";
@@ -11,8 +11,8 @@ export const routes: Routes = [
     component: AppTemplateComponent,
     children: [
       {
-        path: 'basic',
-        data: { title: 'basic' },
+        path: 'main',
+        data: {title: 'basic'},
         component: BasicComponent,
       }
     ]
