@@ -1,19 +1,27 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {NavComponent} from "./nav/nav.component";
 import {FooterComponent} from "./footer/footer.component";
 import {AppTemplateComponent} from "./app-template.component";
-
+import {MainComponent} from "./main/main.component";
+import {RouterOutlet} from "@angular/router";
+import {AppTemplateRoutingModule} from "./app-template-routing.module";
 
 
 @NgModule({
   declarations: [
     AppTemplateComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    RouterOutlet,
+    AppTemplateRoutingModule
+  ],
+  exports: [
+    AppTemplateComponent
+  ],
 })
 export class AppTemplateModule { }

@@ -7,10 +7,13 @@ import {NgxsResetPluginModule} from "ngxs-reset-plugin";
 import {NgxsModule} from "@ngxs/store";
 import {stateList} from "./store";
 import {AppRoutingModule} from "./app-routing.module";
+import {AppTemplateModule} from "./app-template/app-template.module";
+import { BasicComponent } from './basic/basic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BasicComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import {AppRoutingModule} from "./app-routing.module";
         }
       }),
     AppRoutingModule,
+    AppTemplateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

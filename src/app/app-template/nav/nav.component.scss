@@ -1,0 +1,20 @@
+.nav {
+  background-color: #fff;
+  height: 50px;
+
+  &__items {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+  }
+
+  &__item {
+    cursor: pointer;
+  }
+
+  &__name {
+    font-size: 16px;
+  }
+}

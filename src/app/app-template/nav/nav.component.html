@@ -1,1 +1,21 @@
-<p>nav works!</p>
+<div class="nav">
+
+  <div class="nav__items">
+
+    <ng-container *ngFor="let item of navArray$ | async">
+
+      <div class="nav__item">
+
+        <div class="nav__name">
+
+          {{item.name}}
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+  </div>
+
+</div>
