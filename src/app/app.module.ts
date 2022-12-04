@@ -8,6 +8,12 @@ import {NgxsModule} from "@ngxs/store";
 import {stateList} from "./store";
 import {AppRoutingModule} from "./app-routing.module";
 import {AppTemplateModule} from "./app-template/app-template.module";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -26,6 +32,11 @@ import {AppTemplateModule} from "./app-template/app-template.module";
       }),
     AppRoutingModule,
     AppTemplateModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
