@@ -1,0 +1,36 @@
+<div class="search">
+
+  <div class="search__wrapper">
+
+    <div class="search__block">
+
+      <div class="search__name">
+
+        Нерухомість
+
+      </div>
+
+      <div class="search__items">
+
+        <ng-container *ngFor="let item of searchArray">
+
+
+          <div class="search__item">
+
+            <app-custom-select
+              [options]="item.options"
+              [placeholder]="null"
+              (currentValueEvent)="currentOption($event) "
+            ></app-custom-select>
+
+          </div>
+
+        </ng-container>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

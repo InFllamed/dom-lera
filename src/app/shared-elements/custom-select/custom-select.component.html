@@ -1,0 +1,36 @@
+<div class="select">
+
+  <div (click)="isShowList = !isShowList" class="select__wrapper">
+
+    <div class="select__value">
+
+      {{options[0]?.value ?? placeholder}}
+
+    </div>
+
+    <div class="select__arrow">
+
+      <svg width="9" height="6" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.41 0.59L0 2L6 8L12 2L10.59 0.59L6 5.17L1.41 0.59Z" fill="#536FA3"/>
+      </svg>
+
+    </div>
+
+  </div>
+
+  <ul *ngIf="isShowList" class="select__list"
+      [class.select__list--show]="isShowList"
+  >
+
+    <ng-container *ngFor="let option of options">
+
+      <li (click)="setOption(option)" class="select__option">
+
+        <span>{{option.value}}</span>
+
+      </li>
+
+    </ng-container>
+
+  </ul>
+</div>

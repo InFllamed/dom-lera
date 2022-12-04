@@ -6,6 +6,7 @@ import {AppTemplateComponent} from "./app-template.component";
 import {MainComponent} from "./main/main.component";
 import {RouterOutlet} from "@angular/router";
 import {AppTemplateRoutingModule} from "./app-template-routing.module";
+import {BasicModule} from "../basic/basic.module";
 
 
 @NgModule({
@@ -13,15 +14,17 @@ import {AppTemplateRoutingModule} from "./app-template-routing.module";
     AppTemplateComponent,
     NavComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     CommonModule,
     RouterOutlet,
-    AppTemplateRoutingModule
+    AppTemplateRoutingModule,
+    BasicModule
   ],
   exports: [
     AppTemplateComponent
   ],
 })
-export class AppTemplateModule { }
+export class AppTemplateModule {
+}

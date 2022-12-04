@@ -8,12 +8,10 @@ import {NgxsModule} from "@ngxs/store";
 import {stateList} from "./store";
 import {AppRoutingModule} from "./app-routing.module";
 import {AppTemplateModule} from "./app-template/app-template.module";
-import { BasicComponent } from './basic/basic.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BasicComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +25,7 @@ import { BasicComponent } from './basic/basic.component';
         }
       }),
     AppRoutingModule,
-    AppTemplateModule
+    AppTemplateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
