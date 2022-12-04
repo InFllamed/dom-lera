@@ -19,6 +19,10 @@ export class FilterPipe implements PipeTransform {
   }
 
   private filterByPopular(value, comparedValue: any): any[] {
+    if (!value) {
+      return;
+    }
+    console.log(value);
     return value.filter(f => f.id === comparedValue.id);
   }
 

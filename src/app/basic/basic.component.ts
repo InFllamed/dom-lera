@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-basic',
   templateUrl: './basic.component.html',
   styleUrls: ['./basic.component.scss']
 })
-export class BasicComponent {
+export class BasicComponent implements OnInit {
+  constructor() {
+  }
 
+  async ngOnInit(): Promise<void> {
+  }
 }
+

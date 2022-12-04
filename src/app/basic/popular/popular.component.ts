@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FilterTypePipeEnum} from "../../shared-elements/_enums/filter-type-pipe.enum";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-popular',
@@ -106,11 +108,17 @@ export class PopularComponent implements OnInit {
     },
   ];
 
+  blockArray$: Observable<any>
+
   currentTab: { name: string, id: number };
 
   filterTypePipeEnum = FilterTypePipeEnum;
 
-  constructor() {
+  constructor(private db: AngularFirestore) {
+    // db.collection('apartment').add({...this.blockArray});
+    // db.collection('apartment').valueChanges().subscribe(data => {
+    //   console.log(data);
+    // })
   }
 
   openTab(tab: { name: string, id: number }): void {
@@ -118,7 +126,8 @@ export class PopularComponent implements OnInit {
     localStorage.setItem('tab', JSON.stringify(tab.id));
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    // this.blockArray$ = this.db.collection('apartment').valueChanges();
     this.currentTab = this.tabsArray.find(f => f.id === +JSON.parse(JSON.stringify(localStorage.getItem('tab')))) ?? this.tabsArray[0];
   }
 
