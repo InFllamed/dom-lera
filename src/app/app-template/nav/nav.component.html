@@ -1,21 +1,95 @@
 <div class="nav">
+  <div class="container">
 
-  <div class="nav__items">
+    <div class="nav__wrapper">
 
-    <ng-container *ngFor="let item of navArray$ | async">
+      <div class="nav__logo">
 
-      <div class="nav__item">
-
-        <div class="nav__name">
-
-          {{item.name}}
-
-        </div>
+        <img src="https://www.country.ua/img/logo.svg" alt="">
 
       </div>
 
-    </ng-container>
+      <div class="nav__items">
 
+        <ng-container *ngFor="let item of navArray$ | async">
+
+          <div class="nav__item">
+
+            <div class="nav__name">
+
+              {{item.name}}
+
+            </div>
+
+          </div>
+
+        </ng-container>
+
+      </div>
+
+      <div class="nav__user">
+
+        <button *ngIf="!(user$ | async)" (click)="isOpenAuthPopup = true; isAuth = true">Увійти</button>
+
+        <ng-container *ngIf="user$ | async">
+
+          <span>{{(user$ | async)?.email}}</span>
+
+          <button (click)="signOut()">Выйти</button>
+
+        </ng-container>
+
+      </div>
+    </div>
   </div>
 
 </div>
+
+<app-popup *ngIf="isOpenAuthPopup" (closeEvent)="isOpenAuthPopup = false">
+
+  <div class="auth-popup">
+
+    <div class="auth-popup__header">
+
+      <div (click)="isAuth = true; isRegistration = false"
+           class="auth-popup__header-item"
+           [class.auth-popup__header-item--active]="isAuth"
+      >Увійти
+      </div>
+      <div (click)="isRegistration = true; isAuth = false"
+           class="auth-popup__header-item"
+           [class.auth-popup__header-item--active]="isRegistration"
+      >Реєстрація
+      </div>
+
+    </div>
+
+    <div class="auth-popup__body">
+
+      <ng-container *ngIf="isAuth; else registration">
+        Увійти
+        <input [(ngModel)]="email" type="text" placeholder="example@gmail.com">
+        <input [(ngModel)]="password" type="password" placeholder="Введіть пароль">
+
+      </ng-container>
+
+      <ng-template #registration>
+        Реєстрація
+        <input [(ngModel)]="email" type="text" placeholder="example@gmail.com">
+        <input [(ngModel)]="password" type="password" placeholder="Введіть пароль">
+
+
+      </ng-template>
+
+
+    </div>
+
+    <div class="auth-popup__btns">
+
+      <button (click)="sendData()">Send</button>
+
+    </div>
+
+  </div>
+
+</app-popup>

@@ -6,7 +6,8 @@ import {AppTemplateComponent} from "./app-template/app-template.component";
 export const routes: Routes = [
   {
     path: '',
-    data: { title: 'app' },
+    title: 'dom-lera',
+    data: {title: 'app'},
     component: AppTemplateComponent,
   }
 ]

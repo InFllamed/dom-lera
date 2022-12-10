@@ -7,6 +7,8 @@ import {MainComponent} from "./main/main.component";
 import {RouterOutlet} from "@angular/router";
 import {AppTemplateRoutingModule} from "./app-template-routing.module";
 import {BasicModule} from "../basic/basic.module";
+import {SharedElementsModule} from "../shared-elements/shared-elements.module";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import {BasicModule} from "../basic/basic.module";
     CommonModule,
     RouterOutlet,
     AppTemplateRoutingModule,
-    BasicModule
+    BasicModule,
+    SharedElementsModule,
+    FormsModule
   ],
   exports: [
     AppTemplateComponent

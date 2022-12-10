@@ -3,17 +3,21 @@ import {CommonModule} from '@angular/common';
 import {CustomSelectComponent} from "./custom-select/custom-select.component";
 import {ClickOutsideDirective} from './_directives/click-outside.directive';
 import {FilterPipe} from './_pipes/filter.pipe';
+import {PopupComponent} from './popup/popup.component';
 
 
 @NgModule({
   declarations: [
     CustomSelectComponent,
     ClickOutsideDirective,
-    FilterPipe
+    FilterPipe,
+    PopupComponent
   ],
   exports: [
     CustomSelectComponent,
-    FilterPipe
+    FilterPipe,
+    PopupComponent,
+    ClickOutsideDirective
   ],
   imports: [
     CommonModule
