@@ -43,7 +43,30 @@
     font-size: 16px;
   }
 
+  &__advertisement {
+    background-color: #118ad9 !important;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+  }
+
   &__user {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    svg {
+      cursor: pointer;
+    }
 
     button {
       background-color: transparent;
@@ -54,7 +77,6 @@
 }
 
 .auth-popup {
-  height: 340px;
   width: 400px;
 
   &__header {
@@ -89,8 +111,14 @@
       font-weight: 500;
       border-radius: 5px;
       border: 1px solid #d4d4d4;
-      color: #c4c4c4;
+      color: #333;
     }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
   }
 
   &__btns {

@@ -2,9 +2,10 @@ import {Action, Selector, State, StateContext, StateToken} from "@ngxs/store";
 import {Injectable} from "@angular/core";
 import {SetUser, SignIn, SignOut, SignUp} from "../actions/auth.actions";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {UserInterface} from "../../../shared-elements/_interfaces/user.interface";
 
 export interface AuthStateModel {
-  user: any;
+  user: UserInterface;
 }
 
 const AUTH_STATE_TOKEN = new StateToken<AuthStateModel>('auth')
@@ -22,7 +23,7 @@ export class AuthState {
   }
 
   @Selector()
-  static getUser(state: AuthStateModel): any {
+  static getUser(state: AuthStateModel): UserInterface {
     return state.user;
   }
 

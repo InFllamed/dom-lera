@@ -33,9 +33,16 @@
 
         <ng-container *ngIf="user$ | async">
 
-          <span>{{(user$ | async)?.email}}</span>
+          <span>{{(user$ | async)?.email.split('@')[0]}}</span>
 
-          <button (click)="signOut()">Выйти</button>
+          <button class="nav__advertisement">Додати оголошення</button>
+
+          <svg (click)="signOut()" width="18" height="20" viewBox="0 0 18 20" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7.09 13.8892L8.5 15.4167L13.5 10L8.5 4.58333L7.09 6.11083L9.67 8.91667H0V11.0833H9.67L7.09 13.8892ZM16 0.25H2C0.89 0.25 0 1.225 0 2.41667V6.75H2V2.41667H16V17.5833H2V13.25H0V17.5833C0 18.775 0.89 19.75 2 19.75H16C17.1 19.75 18 18.775 18 17.5833V2.41667C18 1.225 17.1 0.25 16 0.25Z"
+              fill="#333"/>
+          </svg>
 
         </ng-container>
 
@@ -66,27 +73,21 @@
 
     <div class="auth-popup__body">
 
-      <ng-container *ngIf="isAuth; else registration">
-        Увійти
-        <input [(ngModel)]="email" type="text" placeholder="example@gmail.com">
-        <input [(ngModel)]="password" type="password" placeholder="Введіть пароль">
+      <div class="auth-popup__item">
+        <span>Email:</span>
+        <input #email type="text" placeholder="example@gmail.com">
+      </div>
 
-      </ng-container>
-
-      <ng-template #registration>
-        Реєстрація
-        <input [(ngModel)]="email" type="text" placeholder="example@gmail.com">
-        <input [(ngModel)]="password" type="password" placeholder="Введіть пароль">
-
-
-      </ng-template>
-
+      <div class="auth-popup__item">
+        <span>Введіть пароль</span>
+        <input #password type="password" placeholder="Введіть пароль">
+      </div>
 
     </div>
 
     <div class="auth-popup__btns">
 
-      <button (click)="sendData()">Send</button>
+      <button (click)="sendData(email.value, password.value)">Відправити</button>
 
     </div>
 
