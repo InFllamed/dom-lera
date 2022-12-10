@@ -1,22 +1,25 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {AppTemplateComponent} from "./app-template.component";
-import {BasicComponent} from "../basic/basic.component";
 
 export const routes: Routes = [
-  {
-    path: '',
-    data: { title: 'main' },
-    component: AppTemplateComponent,
-    children: [
-      {
-        path: 'main',
-        data: {title: 'basic'},
-        component: BasicComponent,
-      }
-    ]
-  }
+  // {
+  //   path: '',
+  //   data: { title: 'main' },
+  //   component: AppTemplateComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       data: {title: 'basic'},
+  //       component: BasicComponent,
+  //     },
+  //     {
+  //       path: 'advertisement',
+  //       data: {title: 'advertisement'},
+  //       component: AdvertisementComponent
+  //     }
+  //   ]
+  // }
 ]
 
 @NgModule({

@@ -9,6 +9,7 @@ import {AppTemplateRoutingModule} from "./app-template-routing.module";
 import {BasicModule} from "../basic/basic.module";
 import {SharedElementsModule} from "../shared-elements/shared-elements.module";
 import {FormsModule} from "@angular/forms";
+import {AdvertComponent} from "../advert/advert.component";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {FormsModule} from "@angular/forms";
     NavComponent,
     FooterComponent,
     MainComponent,
+    AdvertComponent
   ],
   imports: [
     CommonModule,

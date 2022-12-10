@@ -64,6 +64,10 @@
     align-items: center;
     column-gap: 10px;
 
+    span {
+      font-weight: 700;
+    }
+
     svg {
       cursor: pointer;
     }

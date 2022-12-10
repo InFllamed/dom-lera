@@ -18,16 +18,16 @@ export class SearchComponent {
         },
         {
           key: 2,
-          value: 'Продаж'
+          value: 'Кімнат'
         },
         {
           key: 3,
-          value: 'Подобово'
+          value: 'Ціна до'
         }
       ]
     },
     {
-      name: 'Квартира',
+      name: 'Кімнат',
       options: [
         {
           key: '',
@@ -36,7 +36,7 @@ export class SearchComponent {
       ]
     },
     {
-      name: 'Кiмнат',
+      name: 'Ціна до',
       options: [
         {
           key: '',
