@@ -1,0 +1,31 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(68, 68, 68, 0.8);
+  backdrop-filter: blur(80%);
+
+  &__wrapper {
+    position: relative;
+    background-color: #fff;
+    min-height: 150px;
+    min-width: 320px;
+  }
+
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  &__body {
+    padding: 34px 50px;
+  }
+}
