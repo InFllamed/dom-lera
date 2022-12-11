@@ -15,12 +15,16 @@ export class CustomSelectComponent {
 
   isShowList = false;
 
+  currentOption: CustomSelectInterface;
+
   constructor() {
   }
 
   setOption(option: CustomSelectInterface): void {
     console.log(option);
     this.currentValueEvent.emit(option);
+    this.currentOption = option;
+    this.isShowList = false;
   }
 
 }

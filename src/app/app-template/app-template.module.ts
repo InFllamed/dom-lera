@@ -10,6 +10,7 @@ import {BasicModule} from "../basic/basic.module";
 import {SharedElementsModule} from "../shared-elements/shared-elements.module";
 import {FormsModule} from "@angular/forms";
 import {AdvertComponent} from "../advert/advert.component";
+import {NgxDropzoneModule} from "ngx-dropzone";
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {AdvertComponent} from "../advert/advert.component";
     AppTemplateRoutingModule,
     BasicModule,
     SharedElementsModule,
-    FormsModule
+    FormsModule,
+    NgxDropzoneModule
   ],
   exports: [
     AppTemplateComponent

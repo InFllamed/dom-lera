@@ -6,6 +6,7 @@ import {NavArrayInterface} from "./_interfaces/nav-array.interface";
 import {SignIn, SignOut, SignUp} from "../store/actions/auth.actions";
 import {AuthState} from "../store/states/auth.state";
 import {UserInterface} from "../../shared-elements/_interfaces/user.interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav',
@@ -24,7 +25,7 @@ export class NavComponent {
   // email: string;
   // password: string;
 
-  constructor(private store: Store) {
+  constructor(private store: Store, public router: Router) {
   }
 
   async sendData(email: string, password: string): Promise<void> {

@@ -3,7 +3,7 @@
 
     <div class="nav__wrapper">
 
-      <div class="nav__logo">
+      <div (click)="router.navigate([''])" class="nav__logo">
 
         <img src="https://www.country.ua/img/logo.svg" alt="">
 
@@ -35,7 +35,7 @@
 
           <span>{{(user$ | async)?.email.split('@')[0]}}</span>
 
-          <button class="nav__advertisement">Додати оголошення</button>
+          <button (click)="router.navigate(['advert'])" class="nav__advertisement">Додати оголошення</button>
 
           <svg (click)="signOut()" width="18" height="20" viewBox="0 0 18 20" fill="none"
                xmlns="http://www.w3.org/2000/svg">

@@ -9,7 +9,61 @@
 
       <div class="advert__items">
 
+        <ng-container *ngFor="let item of advertArray; let idx = index">
 
+          <div class="advert__item">
+
+            <div class="advert__item-name">
+              <span class="advert__item-idx">{{idx + 1}}</span>
+              {{item.name}}
+            </div>
+
+            <ng-container *ngIf="item.elementType === advertElementType.input">
+
+              <input type="text" [required]="item.required && updateDataValue && !updateDataValue[item.type]?.length"
+                     (input)="updateValue(item, $event.target.value)" [placeholder]="item.placeholder">
+
+            </ng-container>
+
+            <ng-container *ngIf="item.elementType === advertElementType.textArea">
+
+              <textarea (input)="updateValue(item, $event.target.value)" [placeholder]="item.placeholder"
+                        [maxLength]="1000"></textarea>
+
+            </ng-container>
+
+            <ng-container *ngIf="item.elementType === advertElementType.img">
+
+              <!--              <input (change)="updateFileValue(item, $event)" type="file">-->
+
+              <div class="advert__drop" #drop ngx-dropzone
+                   (change)="updateFileValue(item, $event)"
+              >
+
+                <span class="advert__drop-title">add file here</span>
+
+              </div>
+
+            </ng-container>
+
+            <ng-container *ngIf="item.elementType === advertElementType.select">
+
+              <app-custom-select
+                [options]="advertTypeOptions"
+                [placeholder]="item.placeholder"
+                (currentValueEvent)="updateSelectValue(item, $event)"
+              ></app-custom-select>
+
+            </ng-container>
+          </div>
+
+        </ng-container>
+
+
+      </div>
+
+      <div class="advert__btns">
+        <button (click)="sendData()">Send</button>
       </div>
     </div>
   </div>

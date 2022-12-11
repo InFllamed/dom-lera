@@ -2,6 +2,7 @@ import {AdvertElementType} from "../../shared-elements/_interfaces/advert.interf
 
 export interface AdvertRowInterface {
   name: string;
+  type: string;
   placeholder?: string;
   required?: boolean;
   elementType: AdvertElementType;

@@ -13,7 +13,8 @@ export interface AdvertInterface {
   phone: number;
 
   type: AdvertTypeEnum;
-  elementType: AdvertElementType;
+
+  userName: string;
 
   userEmail: string;
 
