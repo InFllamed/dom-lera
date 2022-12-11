@@ -19,11 +19,27 @@ export class FilterPipe implements PipeTransform {
   }
 
   private filterByPopular(value, comparedValue: any): any[] {
-    if (!value) {
+    if (!value || !comparedValue) {
       return;
     }
-    console.log(value);
-    return value.filter(f => f.type === comparedValue.id);
+    console.log(comparedValue);
+    if (comparedValue.currentTab) {
+      return value.filter(f => +f.type === +comparedValue.currentTab.id);
+    }
+
+    if (comparedValue.type) {
+      value = value.filter(f => f.type === comparedValue.type);
+    }
+
+    if (comparedValue.price) {
+      value = value.filter(f => +f.price <= +comparedValue.price);
+    }
+
+    if (comparedValue.room) {
+      value = value.filter(f => +f.room === +comparedValue.room);
+    }
+
+    return value;
   }
 
 }

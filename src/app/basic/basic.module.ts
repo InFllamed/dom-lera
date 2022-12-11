@@ -5,6 +5,7 @@ import {SearchComponent} from './search/search.component';
 import {PopularComponent} from './popular/popular.component';
 import {SharedElementsModule} from "../shared-elements/shared-elements.module";
 import {InfoComponent} from './info/info.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {InfoComponent} from './info/info.component';
   exports: [],
   imports: [
     CommonModule,
-    SharedElementsModule
+    SharedElementsModule,
+    NgxPaginationModule
   ]
 })
 export class BasicModule { }

@@ -17,15 +17,27 @@
 
           <div class="search__item">
 
-            <app-custom-select
-              [options]="item.options"
-              [placeholder]="null"
-              (currentValueEvent)="currentOption($event) "
-            ></app-custom-select>
+            <ng-container *ngIf="item.elementType === advertElementType.select">
+
+              <app-custom-select
+                [options]="item.options"
+                [placeholder]="item.placeholder"
+                (currentValueEvent)="currentOption(item, $event) "
+              ></app-custom-select>
+
+            </ng-container>
+
+            <ng-container *ngIf="item.elementType === advertElementType.input">
+
+              <input (input)="updateValue(item, $event.target.value)" type="text" [placeholder]="item.placeholder">
+
+            </ng-container>
 
           </div>
 
         </ng-container>
+
+        <button (click)="filterData()">Знайти</button>
 
       </div>
 

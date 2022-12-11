@@ -3,8 +3,10 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {AdvertTypeEnum} from "../../shared-elements/_enums/advert-type.enum";
 import {AdvertInterface} from "../../shared-elements/_interfaces/advert.interface";
 import {Router} from "@angular/router";
-import {Store} from "@ngxs/store";
+import {Select, Store} from "@ngxs/store";
 import {FilterTypePipeEnum} from "../../shared-elements/_enums/filter-type-pipe.enum";
+import {PopularState} from "../_store/states/popular.state";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-popular',
@@ -12,6 +14,8 @@ import {FilterTypePipeEnum} from "../../shared-elements/_enums/filter-type-pipe.
   styleUrls: ['./popular.component.scss']
 })
 export class PopularComponent implements OnInit {
+
+  @Select(PopularState.getCurrentFilter) currentFilter$: Observable<any>;
 
   tabsArray: { name: string, id: AdvertTypeEnum }[] = [
     {
@@ -35,9 +39,19 @@ export class PopularComponent implements OnInit {
   filterTypePipeEnum = FilterTypePipeEnum;
 
   constructor(private db: AngularFirestore, private router: Router, private store: Store) {
+
     db.collection('apartment').valueChanges().subscribe((data: AdvertInterface[]) => {
       this.data = data;
       console.log(data);
+    });
+
+    this.currentFilter$.subscribe(filter => {
+      if (filter.type) {
+        this.currentTab = {
+          ...this.currentTab,
+          id: filter.type
+        }
+      }
     })
   }
 

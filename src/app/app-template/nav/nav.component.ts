@@ -7,6 +7,7 @@ import {SignIn, SignOut, SignUp} from "../store/actions/auth.actions";
 import {AuthState} from "../store/states/auth.state";
 import {UserInterface} from "../../shared-elements/_interfaces/user.interface";
 import {Router} from "@angular/router";
+import {SetCurrentFilter} from "../../basic/_store/actions/popular.actions";
 
 @Component({
   selector: 'app-nav',
@@ -42,6 +43,12 @@ export class NavComponent {
 
   async signOut(): Promise<void> {
     await this.store.dispatch(new SignOut()).toPromise();
+  }
+
+  moveTo(item: NavArrayInterface): void {
+    this.store.dispatch(new SetCurrentFilter({
+      type: item.value
+    }))
   }
 
 }
