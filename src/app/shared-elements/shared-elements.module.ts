@@ -4,6 +4,7 @@ import {CustomSelectComponent} from "./custom-select/custom-select.component";
 import {ClickOutsideDirective} from './_directives/click-outside.directive';
 import {FilterPipe} from './_pipes/filter.pipe';
 import {PopupComponent} from './popup/popup.component';
+import {PopularBlockComponent} from './popular-block/popular-block.component';
 
 
 @NgModule({
@@ -11,13 +12,15 @@ import {PopupComponent} from './popup/popup.component';
     CustomSelectComponent,
     ClickOutsideDirective,
     FilterPipe,
-    PopupComponent
+    PopupComponent,
+    PopularBlockComponent
   ],
   exports: [
     CustomSelectComponent,
     FilterPipe,
     PopupComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    PopularBlockComponent
   ],
   imports: [
     CommonModule

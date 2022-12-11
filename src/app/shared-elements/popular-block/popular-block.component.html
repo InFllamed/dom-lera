@@ -1,0 +1,46 @@
+<div class="popular">
+  <div class="popular__items">
+
+    <ng-container
+      *ngFor="let item of items | filterBySmth: {type: filterTypePipeEnum.popular, comparedValue: currentTab}">
+
+      <div class="popular__item">
+
+        <div class="popular__item-img">
+          <img [src]="item.img" [alt]="item.name">
+        </div>
+
+        <div class="popular__item-block">
+
+          <div (click)="moveTo(item)" class="popular__item-name">
+            <span>{{item.name}}</span>
+          </div>
+
+          <div class="popular__item-description">
+
+            {{item.description}}
+
+          </div>
+
+          <div class="popular__item-footer">
+
+            <div class="popular__item-m2">
+              {{item.area + ' m2'}}
+            </div>
+
+            <div class="popular__item-price">
+
+              {{item.price + ' грн'}}
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+  </div>
+</div>

@@ -4,6 +4,7 @@ import {PreloadAllModules, RouterModule, Routes} from "@angular/router";
 import {AppTemplateComponent} from "./app-template/app-template.component";
 import {BasicComponent} from "./basic/basic.component";
 import {AdvertComponent} from "./advert/advert.component";
+import {SingleAdvertComponent} from "./single-advert/single-advert.component";
 
 export const routes: Routes = [
   {
@@ -19,8 +20,13 @@ export const routes: Routes = [
       },
       {
         path: 'advert',
-        data: {title: 'adver'},
+        data: {title: 'advert'},
         component: AdvertComponent
+      },
+      {
+        path: 'single',
+        data: {title: 'single'},
+        component: SingleAdvertComponent
       }
     ]
   }

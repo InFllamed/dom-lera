@@ -1,0 +1,19 @@
+<div class="sidebar">
+
+  <div class="sidebar__wrapper">
+
+    <div class="sidebar__content">
+
+      <div class="sidebar__price">{{(currentAdvert$ | async)?.price}} грн</div>
+
+      <div class="sidebar__area">{{(currentAdvert$ | async)?.area}} m2</div>
+
+    </div>
+
+    <div class="sidebar__name">{{(currentAdvert$ | async)?.userName}}</div>
+
+    <div class="sidebar__phone">{{(currentAdvert$ | async)?.phone}}</div>
+
+  </div>
+
+</div>

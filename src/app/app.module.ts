@@ -14,11 +14,14 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {environment} from "../environments/environment";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {SingleAdvertComponent} from './single-advert/single-advert.component';
+import {SingleSidebarComponent} from './single-advert/single-sidebar/single-sidebar.component';
+import {SharedElementsModule} from "./shared-elements/shared-elements.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     SingleAdvertComponent,
+    SingleSidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import {SingleAdvertComponent} from './single-advert/single-advert.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    SharedElementsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

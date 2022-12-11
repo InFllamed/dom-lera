@@ -1,1 +1,84 @@
-<p>single-advert works!</p>
+<div class="single">
+
+  <div class="container">
+
+    <div class="single__wrapper">
+
+      <div class="single__items">
+
+        <div class="single__img">
+          <img [src]="(currentAdvert$ | async)?.img" alt="">
+        </div>
+
+        <div class="single__header">
+          <div class="single__title">{{(currentAdvert$ | async)?.name}}</div>
+
+
+          <div class="single__type">
+
+            <ng-container [ngSwitch]="(currentAdvert$ | async)?.type">
+
+              <ng-template [ngSwitchCase]="advertTypeEnum.rent">
+
+                <span>Оренда</span>
+
+              </ng-template>
+
+              <ng-template [ngSwitchCase]="advertTypeEnum.sale">
+
+                <span>Продаж</span>
+
+              </ng-template>
+
+              <ng-template [ngSwitchCase]="advertTypeEnum.daily">
+
+                <span>Подобово</span>
+
+              </ng-template>
+
+            </ng-container>
+
+          </div>
+
+        </div>
+
+        <div class="single__info">
+
+          <div class="single__info-item">
+            <span>Кімнат</span>
+            <div>{{(currentAdvert$ | async)?.room}}</div>
+          </div>
+          <div class="single__info-item">
+            <span>Площа</span>
+            <div>{{(currentAdvert$ | async)?.area}}</div>
+          </div>
+          <div class="single__info-item">
+            <span>Поверх</span>
+            <div>{{(currentAdvert$ | async)?.floor}}</div>
+          </div>
+
+        </div>
+
+        <div class="single__description">
+
+          <div class="single__description-item">
+            <span>Опис</span>
+            <div>{{(currentAdvert$ | async)?.description}}</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="single__sidebar">
+
+        <app-single-sidebar></app-single-sidebar>
+
+      </div>
+
+    </div>
+
+    <app-popular-block [items]="data"></app-popular-block>
+
+  </div>
+
+</div>

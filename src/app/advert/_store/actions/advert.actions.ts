@@ -7,3 +7,11 @@ export class UpdateAdvert {
   }
 
 }
+
+export class SetAdvert {
+  static readonly type = '[Advert] SetAdvert';
+
+  constructor(public advert: AdvertInterface) {
+  }
+
+}
