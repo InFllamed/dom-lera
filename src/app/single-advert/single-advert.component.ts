@@ -21,7 +21,10 @@ export class SingleAdvertComponent {
 
   constructor(private db: AngularFirestore, private store: Store) {
     db.collection('apartment').valueChanges().subscribe((data: AdvertInterface[]) => {
-      this.data = data.filter(f => f.type !== this.store.selectSnapshot(AdvertState.getCurrentAdvert).type);
+      if (!data || !data.length) {
+        return;
+      }
+      this.data = data.filter(f => f.type === this.store.selectSnapshot(AdvertState.getCurrentAdvert)?.type);
       console.log(data);
     })
   }

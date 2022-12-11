@@ -77,7 +77,9 @@
 
     </div>
 
-    <app-popular-block [items]="data"></app-popular-block>
+    Дивіться також
+
+    <app-popular-block [items]="data" [currentTab]="(currentAdvert$ | async)?.type"></app-popular-block>
 
   </div>
 

@@ -4,6 +4,7 @@ import {AdvertTypeEnum} from "../../shared-elements/_enums/advert-type.enum";
 import {AdvertInterface} from "../../shared-elements/_interfaces/advert.interface";
 import {Router} from "@angular/router";
 import {Store} from "@ngxs/store";
+import {FilterTypePipeEnum} from "../../shared-elements/_enums/filter-type-pipe.enum";
 
 @Component({
   selector: 'app-popular',
@@ -31,6 +32,7 @@ export class PopularComponent implements OnInit {
 
   currentTab: { name: string, id: AdvertTypeEnum };
 
+  filterTypePipeEnum = FilterTypePipeEnum;
 
   constructor(private db: AngularFirestore, private router: Router, private store: Store) {
     db.collection('apartment').valueChanges().subscribe((data: AdvertInterface[]) => {

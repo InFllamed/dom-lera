@@ -25,7 +25,8 @@
 
       </div>
 
-      <app-popular-block [items]="data" [currentTab]="currentTab"></app-popular-block>
+      <app-popular-block [items]="data | filterBySmth: {type: filterTypePipeEnum.popular, comparedValue: currentTab}"
+                         [currentTab]="currentTab"></app-popular-block>
 
     </div>
   </div>
