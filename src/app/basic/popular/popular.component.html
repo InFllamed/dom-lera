@@ -28,7 +28,7 @@
       <div class="popular__items">
 
         <ng-container
-          *ngFor="let item of blockArray | filterBySmth: {type: filterTypePipeEnum.popular, comparedValue: currentTab}">
+          *ngFor="let item of data | filterBySmth: {type: filterTypePipeEnum.popular, comparedValue: currentTab}">
 
           <div class="popular__item">
 
@@ -51,7 +51,7 @@
               <div class="popular__item-footer">
 
                 <div class="popular__item-m2">
-                  {{item.m2 + ' m2'}}
+                  {{item.area + ' m2'}}
                 </div>
 
                 <div class="popular__item-price">

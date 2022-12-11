@@ -20,7 +20,7 @@
 
             <ng-container *ngIf="item.elementType === advertElementType.input">
 
-              <input type="text" [required]="item.required && updateDataValue && !updateDataValue[item.type]?.length"
+              <input type="text"
                      (input)="updateValue(item, $event.target.value)" [placeholder]="item.placeholder">
 
             </ng-container>

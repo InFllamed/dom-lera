@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FilterTypePipeEnum} from "../../shared-elements/_enums/filter-type-pipe.enum";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Observable} from "rxjs";
+import {AdvertTypeEnum} from "../../shared-elements/_enums/advert-type.enum";
+import {AdvertInterface} from "../../shared-elements/_interfaces/advert.interface";
 
 @Component({
   selector: 'app-popular',
@@ -10,125 +12,43 @@ import {Observable} from "rxjs";
 })
 export class PopularComponent implements OnInit {
 
-  tabsArray: { name: string, id: number }[] = [
+  tabsArray: { name: string, id: AdvertTypeEnum }[] = [
     {
       name: 'Оренда',
-      id: 1
+      id: AdvertTypeEnum.rent
     },
     {
       name: 'Продаж',
-      id: 2
+      id: AdvertTypeEnum.sale
     },
     {
       name: 'Подобово',
-      id: 3
+      id: AdvertTypeEnum.daily
     }
   ];
 
-  blockArray: { name: string, img: string, m2: string, price: string, description: string, id: number }[] = [
-    {
-      name: 'test1',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 1
-    },
-    {
-      name: 'test2',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 2
-    },
-    {
-      name: 'test1',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 1
-    },
-    {
-      name: 'test3',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 3
-    },
-    {
-      name: 'test2',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 2
-    },
-    {
-      name: 'test1',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 1
-    },
-    {
-      name: 'test3',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 3
-    },
-    {
-      name: 'test3',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 3
-    },
-    {
-      name: 'test3',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 3
-    },
-    {
-      name: 'test2',
-      img: 'https://www.country.ua/img_wepb_to_jpg.php?file=https://storage.googleapis.com/countryua_webp_2022/phot_webp_6374d551457fd.webp',
-      m2: '64',
-      price: '20000',
-      description: 'Київ, Солом\'янський район, Шулявка, бул. Вацлава Гавела (Лепсе Ивана), 6Б',
-      id: 2
-    },
-  ];
+  data: AdvertInterface[];
 
   blockArray$: Observable<any>
 
-  currentTab: { name: string, id: number };
+  currentTab: { name: string, id: AdvertTypeEnum };
 
   filterTypePipeEnum = FilterTypePipeEnum;
 
   constructor(private db: AngularFirestore) {
-    // db.collection('apartment').add({...this.blockArray});
-    // db.collection('apartment').valueChanges().subscribe(data => {
-    //   console.log(data);
-    // })
+    db.collection('apartment').valueChanges().subscribe((data: AdvertInterface[]) => {
+      this.data = data;
+      console.log(data);
+    })
   }
 
-  openTab(tab: { name: string, id: number }): void {
+  openTab(tab: { name: string, id: AdvertTypeEnum }): void {
     this.currentTab = tab;
     localStorage.setItem('tab', JSON.stringify(tab.id));
   }
 
   async ngOnInit(): Promise<void> {
-    // this.blockArray$ = this.db.collection('apartment').valueChanges();
-    this.currentTab = this.tabsArray.find(f => f.id === +JSON.parse(JSON.stringify(localStorage.getItem('tab')))) ?? this.tabsArray[0];
+    this.currentTab = this.tabsArray.find(f => +f.id === +JSON.parse(JSON.stringify(localStorage.getItem('tab')))) ?? this.tabsArray[0];
   }
 
 }

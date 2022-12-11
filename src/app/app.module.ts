@@ -13,10 +13,12 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {environment} from "../environments/environment";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {SingleAdvertComponent} from './single-advert/single-advert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SingleAdvertComponent,
   ],
   imports: [
     BrowserModule,

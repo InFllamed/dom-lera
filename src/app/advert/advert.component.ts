@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AdvertElementType, AdvertInterface} from "../shared-elements/_interfaces/advert.interface";
+import {AdvertElementType} from "../shared-elements/_interfaces/advert.interface";
 import {AdvertRowInterface} from "./_interfaces/advert-row.interface";
 import {CustomSelectInterface} from "../shared-elements/_interfaces/custom-select.interface";
 import {AdvertTypeEnum} from "../shared-elements/_enums/advert-type.enum";
@@ -7,6 +7,8 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {NgxDropzoneChangeEvent} from "ngx-dropzone";
 import {Store} from "@ngxs/store";
 import {AuthState} from "../app-template/store/states/auth.state";
+import {UpdateAdvert} from "./_store/actions/advert.actions";
+import {AdvertState} from "./_store/states/advert.state";
 
 @Component({
   selector: 'app-advert',
@@ -104,28 +106,25 @@ export class AdvertComponent {
     }
   ];
 
-  updateDataValue: AdvertInterface;
-
   constructor(private db: AngularFirestore, private store: Store) {
   }
 
   updateValue(item: AdvertRowInterface, value: string): void {
     console.log(item, value);
 
-    this.updateDataValue = {
-      ...this.updateDataValue,
+    this.store.dispatch(new UpdateAdvert({
+      ...this.store.selectSnapshot(AdvertState.getAdvertValue),
       [item.type]: value
-    }
-    console.log(this.updateDataValue);
+    }))
   }
 
   async updateFileValue(item: AdvertRowInterface, event: NgxDropzoneChangeEvent): Promise<void> {
     const file = await this.getFile(event.addedFiles[0]);
 
-    this.updateDataValue = {
-      ...this.updateDataValue,
+    this.store.dispatch(new UpdateAdvert({
+      ...this.store.selectSnapshot(AdvertState.getAdvertValue),
       [item.type]: file
-    }
+    }))
   }
 
   private getFile(file: File): Promise<string> {
@@ -141,16 +140,15 @@ export class AdvertComponent {
   }
 
   updateSelectValue(item: AdvertRowInterface, value: CustomSelectInterface): void {
-    this.updateDataValue = {
-      ...this.updateDataValue,
+    this.store.dispatch(new UpdateAdvert({
+      ...this.store.selectSnapshot(AdvertState.getAdvertValue),
       [item.type]: value.key
-    }
-    console.log(this.updateDataValue);
+    }))
   }
 
   async sendData(): Promise<void> {
     await this.db.collection('apartment').add({
-      ...this.updateDataValue,
+      ...this.store.selectSnapshot(AdvertState.getAdvertValue),
       userEmail: this.store.selectSnapshot(AuthState.getUser).email,
       userId: this.store.selectSnapshot(AuthState.getUser).uid,
       creation: Date.now()

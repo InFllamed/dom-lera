@@ -23,7 +23,7 @@ export class FilterPipe implements PipeTransform {
       return;
     }
     console.log(value);
-    return value.filter(f => f.id === comparedValue.id);
+    return value.filter(f => f.type === comparedValue.id);
   }
 
 }
