@@ -8,6 +8,7 @@ import {AuthState} from "../store/states/auth.state";
 import {UserInterface} from "../../shared-elements/_interfaces/user.interface";
 import {Router} from "@angular/router";
 import {SetCurrentFilter} from "../../basic/_store/actions/popular.actions";
+import {SetAdvert} from "../../advert/_store/actions/advert.actions";
 
 @Component({
   selector: 'app-nav',
@@ -48,6 +49,11 @@ export class NavComponent {
     this.store.dispatch(new SetCurrentFilter({
       type: item.value
     }))
+  }
+
+  moveToAdvert(): void {
+    this.store.dispatch(new SetAdvert(null));
+    this.router.navigate(['advert']);
   }
 
 }

@@ -44,7 +44,7 @@
 
           <span (click)="router.navigate(['profile'])">{{(user$ | async)?.email.split('@')[0]}}</span>
 
-          <button (click)="router.navigate(['advert'])" class="nav__advertisement">Додати оголошення</button>
+          <button (click)="moveToAdvert()" class="nav__advertisement">Додати оголошення</button>
 
           <svg (click)="signOut()" width="18" height="20" viewBox="0 0 18 20" fill="none"
                xmlns="http://www.w3.org/2000/svg">
