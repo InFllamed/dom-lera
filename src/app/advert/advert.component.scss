@@ -71,6 +71,12 @@
       font-size: 18px;
       font-weight: 500;
     }
+
+    img {
+      object-fit: cover;
+      height: 100px;
+      width: 100%;
+    }
   }
 
   &__drop {

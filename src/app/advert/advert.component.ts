@@ -19,6 +19,7 @@ import {Observable} from "rxjs";
 export class AdvertComponent {
 
   @Select(AdvertState.getCurrentAdvert) currentAdvert$: Observable<AdvertInterface>;
+  @Select(AdvertState.getAdvertValue) advertValue$: Observable<AdvertInterface>;
 
   advertArray: AdvertRowInterface[] = [
     {

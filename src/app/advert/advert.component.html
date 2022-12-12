@@ -38,13 +38,23 @@
 
               <!--              <input (change)="updateFileValue(item, $event)" type="file">-->
 
-              <div class="advert__drop" #drop ngx-dropzone
-                   (change)="updateFileValue(item, $event)"
-              >
+              <ng-container *ngIf="!(advertValue$ | async)?.img; else img">
 
-                <span class="advert__drop-title">add file here</span>
+                <div class="advert__drop" #drop ngx-dropzone
+                     (change)="updateFileValue(item, $event)"
+                >
 
-              </div>
+                  <span class="advert__drop-title">add file here</span>
+
+                </div>
+
+              </ng-container>
+
+              <ng-template #img>
+
+                <img [src]="(advertValue$ | async)?.img" alt="">
+
+              </ng-template>
 
             </ng-container>
 
