@@ -32,9 +32,11 @@
     &-img {
       position: relative;
       min-height: 250px;
+      max-height: 250px;
       display: flex;
 
       img {
+        object-fit: cover;
         width: 100%;
         height: auto;
       }
@@ -51,6 +53,9 @@
       flex-direction: column;
       background-color: #fff;
       padding: 20px;
+      min-height: 200px;
+      max-height: 200px;
+      justify-content: space-between;
       border-radius: 0 0 5px 5px;
     }
 

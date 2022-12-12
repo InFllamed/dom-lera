@@ -163,6 +163,8 @@ export class AdvertComponent {
       userId: this.store.selectSnapshot(AuthState.getUser).uid,
       creation: Date.now()
     });
+
+    this.store.dispatch(new UpdateAdvert(null));
   }
 
 }

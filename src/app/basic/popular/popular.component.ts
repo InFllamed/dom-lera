@@ -7,6 +7,7 @@ import {Select, Store} from "@ngxs/store";
 import {FilterTypePipeEnum} from "../../shared-elements/_enums/filter-type-pipe.enum";
 import {PopularState} from "../_store/states/popular.state";
 import {Observable} from "rxjs";
+import {SetCurrentFilter} from "../_store/actions/popular.actions";
 
 @Component({
   selector: 'app-popular',
@@ -70,6 +71,7 @@ export class PopularComponent implements OnInit {
   }
 
   openTab(tab: { name: string, id: AdvertTypeEnum }): void {
+    this.store.dispatch(new SetCurrentFilter(null));
     this.currentTab = tab;
     localStorage.setItem('tab', JSON.stringify(tab.id));
   }
