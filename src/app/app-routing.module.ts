@@ -10,7 +10,7 @@ import {ProfileComponent} from "./profile/profile.component";
 export const routes: Routes = [
   {
     path: '',
-    title: 'dom-lera',
+    title: 'Valeriia dim',
     data: {title: 'app'},
     component: AppTemplateComponent,
     children: [

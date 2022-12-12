@@ -22,9 +22,8 @@ export class NavComponent {
   isOpenAuthPopup = false;
   isRegistration = false;
   isAuth = false;
-  //
-  // email: string;
-  // password: string;
+
+  logo = './assets/img/logo.jpg'
 
   constructor(private store: Store, public router: Router) {
   }
