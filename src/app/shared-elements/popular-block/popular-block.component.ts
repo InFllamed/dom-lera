@@ -3,6 +3,7 @@ import {SetAdvert, UpdateAdvert} from "../../advert/_store/actions/advert.action
 import {Store} from "@ngxs/store";
 import {Router} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {AdvertInterface} from "../_interfaces/advert.interface";
 
 @Component({
   selector: 'app-popular-block',
@@ -11,7 +12,7 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 })
 export class PopularBlockComponent implements OnInit {
 
-  @Input() items;
+  @Input() items: AdvertInterface[];
   @Input() currentTab;
   @Input() isIcon = false;
 
@@ -21,12 +22,12 @@ export class PopularBlockComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async moveTo(item): Promise<void> {
+  async moveTo(item: AdvertInterface): Promise<void> {
     await this.store.dispatch(new SetAdvert(item)).toPromise();
     await this.router.navigate(['single']);
   }
 
-  edit(item): void {
+  edit(item: AdvertInterface): void {
     console.log(item);
     this.router.navigate(['advert']);
     this.store.dispatch(new SetAdvert(item));
@@ -35,11 +36,11 @@ export class PopularBlockComponent implements OnInit {
     }))
   }
 
-  async delete(item): Promise<void> {
+  async delete(item: AdvertInterface): Promise<void> {
     await this.db.collection('apartment').doc(item.id).delete();
   }
 
-  async favorites(item): Promise<void> {
+  async favorites(item: AdvertInterface): Promise<void> {
     if (item.isFavorite) {
       await this.db.collection('apartment').doc(item.id).update({
         ...item,

@@ -22,7 +22,7 @@ export class FilterPipe implements PipeTransform {
     if (!value || !comparedValue) {
       return;
     }
-    console.log(comparedValue);
+
     if (comparedValue.currentTab) {
       return value.filter(f => +f.type === +comparedValue.currentTab.id);
     }

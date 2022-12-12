@@ -50,11 +50,6 @@ export class PopularComponent implements OnInit {
         }
       })
     });
-    //
-    // db.collection('apartment').valueChanges().subscribe((data: AdvertInterface[]) => {
-    //   this.data = data;
-    //   console.log(data);
-    // });
 
 
     this.currentFilter$.subscribe(filter => {

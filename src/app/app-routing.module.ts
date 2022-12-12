@@ -7,6 +7,7 @@ import {AdvertComponent} from "./advert/advert.component";
 import {SingleAdvertComponent} from "./single-advert/single-advert.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {FavoriteComponent} from "./favorite/favorite.component";
+import {AuthGuardModule} from "@angular/fire/auth-guard";
 
 export const routes: Routes = [
   {
@@ -23,6 +24,7 @@ export const routes: Routes = [
       {
         path: 'advert',
         data: {title: 'advert'},
+        canActivate: [AuthGuardModule],
         component: AdvertComponent
       },
       {
