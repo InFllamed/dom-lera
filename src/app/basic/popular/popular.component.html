@@ -28,6 +28,7 @@
       <app-popular-block
         [items]="data | filterBySmth: {type: filterTypePipeEnum.popular,
         comparedValue: (currentFilter$ | async) ?? {currentTab: currentTab}}"
+        [isIcon]="true"
         [currentTab]="currentTab"></app-popular-block>
 
     </div>

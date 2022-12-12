@@ -6,6 +6,8 @@ export interface AdvertInterface {
   price: number;
   description: string;
 
+  isFavorite?: boolean;
+
   id: string;
 
   area: number;

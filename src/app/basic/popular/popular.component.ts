@@ -41,10 +41,19 @@ export class PopularComponent implements OnInit {
 
   constructor(private db: AngularFirestore, private router: Router, private store: Store) {
 
-    db.collection('apartment').valueChanges().subscribe((data: AdvertInterface[]) => {
-      this.data = data;
-      console.log(data);
+    db.collection('apartment').snapshotChanges().subscribe(data => {
+      this.data = data.map(item => {
+        return {
+          ...item.payload.doc.data() as any,
+          id: item.payload.doc.id
+        }
+      })
     });
+    //
+    // db.collection('apartment').valueChanges().subscribe((data: AdvertInterface[]) => {
+    //   this.data = data;
+    //   console.log(data);
+    // });
 
 
     this.currentFilter$.subscribe(filter => {

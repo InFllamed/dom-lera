@@ -6,6 +6,7 @@ import {BasicComponent} from "./basic/basic.component";
 import {AdvertComponent} from "./advert/advert.component";
 import {SingleAdvertComponent} from "./single-advert/single-advert.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {FavoriteComponent} from "./favorite/favorite.component";
 
 export const routes: Routes = [
   {
@@ -33,6 +34,11 @@ export const routes: Routes = [
         path: 'profile',
         data: {title: 'profile'},
         component: ProfileComponent
+      },
+      {
+        path: 'favorite',
+        data: {title: 'favorite'},
+        component: FavoriteComponent
       }
     ]
   }

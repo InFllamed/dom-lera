@@ -14,10 +14,12 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {environment} from "../environments/environment";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {SharedElementsModule} from "./shared-elements/shared-elements.module";
+import {FavoriteComponent} from './favorite/favorite.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,

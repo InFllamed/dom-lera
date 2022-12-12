@@ -7,16 +7,32 @@
     gap: 20px
   }
 
+  &__icon {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    svg {
+      path {
+        fill: #fd8602;
+        stroke: #fd8602;
+      }
+    }
+  }
+
   &__item {
     box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
     border-radius: 0 0 5px 5px;
     display: flex;
     flex-direction: column;
     flex-basis: calc(33.333333% - 20px);
+    position: relative;
 
     &-img {
       position: relative;
       min-height: 250px;
+      display: flex;
 
       img {
         width: 100%;
