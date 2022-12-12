@@ -44,17 +44,21 @@
 
         <div class="single__info">
 
-          <div class="single__info-item">
-            <span>Кімнат</span>
-            <div>{{(currentAdvert$ | async)?.room}}</div>
-          </div>
-          <div class="single__info-item">
-            <span>Площа</span>
-            <div>{{(currentAdvert$ | async)?.area}}</div>
-          </div>
-          <div class="single__info-item">
-            <span>Поверх</span>
-            <div>{{(currentAdvert$ | async)?.floor}}</div>
+          <div class="single__info-title">Основна iнформацiя</div>
+
+          <div class="single__info-block">
+            <div class="single__info-item">
+              <span>Кімнат</span>
+              <div>{{(currentAdvert$ | async)?.room}}</div>
+            </div>
+            <div class="single__info-item">
+              <span>Площа</span>
+              <div>{{(currentAdvert$ | async)?.area}} M<sup>2</sup></div>
+            </div>
+            <div class="single__info-item">
+              <span>Поверх</span>
+              <div>{{(currentAdvert$ | async)?.floor}}</div>
+            </div>
           </div>
 
         </div>
