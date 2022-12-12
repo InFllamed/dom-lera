@@ -40,10 +40,17 @@ export class PopularBlockComponent implements OnInit {
   }
 
   async favorites(item): Promise<void> {
+    if (item.isFavorite) {
+      await this.db.collection('apartment').doc(item.id).update({
+        ...item,
+        isFavorite: false
+      });
+      return;
+    }
     await this.db.collection('apartment').doc(item.id).update({
       ...item,
       isFavorite: true
-    })
+    });
   }
 
 }
