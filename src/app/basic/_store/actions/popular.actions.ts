@@ -4,3 +4,8 @@ export class SetCurrentFilter {
   constructor(public data) {
   }
 }
+
+export class InitAdverts {
+  static readonly type = '[Popular] InitAdverts';
+
+}

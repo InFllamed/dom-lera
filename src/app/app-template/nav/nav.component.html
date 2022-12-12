@@ -33,7 +33,7 @@
 
         <ng-container *ngIf="user$ | async">
 
-          <span>{{(user$ | async)?.email.split('@')[0]}}</span>
+          <span (click)="router.navigate(['profile'])">{{(user$ | async)?.email.split('@')[0]}}</span>
 
           <button (click)="router.navigate(['advert'])" class="nav__advertisement">Додати оголошення</button>
 

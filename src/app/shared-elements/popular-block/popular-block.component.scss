@@ -15,12 +15,19 @@
     flex-basis: calc(33.333333% - 20px);
 
     &-img {
+      position: relative;
       max-height: 250px;
       min-height: 250px;
 
       img {
         width: 100%;
         height: auto;
+      }
+
+      &:hover {
+        .popular__hover {
+          display: flex;
+        }
       }
     }
 
@@ -64,6 +71,36 @@
     &-price {
       font-size: 20px;
       font-weight: 700;
+    }
+  }
+
+  &__hover {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    row-gap: 10px;
+
+    button {
+      display: inline-flex;
+      padding: 0 20px;
+      border-radius: 50px;
+      background-color: #fd8602;
+      height: 50px;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      transition: all 0.3s ease 0s;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 20px rgb(221 116 0 / 40%);
+    }
+
+    button:last-child {
+      background-color: red;
     }
   }
 }

@@ -16,12 +16,14 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {SingleAdvertComponent} from './single-advert/single-advert.component';
 import {SingleSidebarComponent} from './single-advert/single-sidebar/single-sidebar.component';
 import {SharedElementsModule} from "./shared-elements/shared-elements.module";
+import {ProfileComponent} from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SingleAdvertComponent,
     SingleSidebarComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

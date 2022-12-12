@@ -6,6 +6,8 @@ export interface AdvertInterface {
   price: number;
   description: string;
 
+  id: string;
+
   area: number;
   room: number;
 

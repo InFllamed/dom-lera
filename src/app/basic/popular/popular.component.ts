@@ -16,6 +16,7 @@ import {Observable} from "rxjs";
 export class PopularComponent implements OnInit {
 
   @Select(PopularState.getCurrentFilter) currentFilter$: Observable<any>;
+  @Select(PopularState.getAdverts) adverts$: Observable<AdvertInterface[]>;
 
   tabsArray: { name: string, id: AdvertTypeEnum }[] = [
     {
@@ -45,7 +46,11 @@ export class PopularComponent implements OnInit {
       console.log(data);
     });
 
+
     this.currentFilter$.subscribe(filter => {
+      if (!filter) {
+        return;
+      }
       if (filter.type) {
         this.currentTab = {
           ...this.currentTab,

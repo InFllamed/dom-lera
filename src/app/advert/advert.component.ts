@@ -1,14 +1,15 @@
 import {Component} from '@angular/core';
-import {AdvertElementType} from "../shared-elements/_interfaces/advert.interface";
+import {AdvertElementType, AdvertInterface} from "../shared-elements/_interfaces/advert.interface";
 import {AdvertRowInterface} from "./_interfaces/advert-row.interface";
 import {CustomSelectInterface} from "../shared-elements/_interfaces/custom-select.interface";
 import {AdvertTypeEnum} from "../shared-elements/_enums/advert-type.enum";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {NgxDropzoneChangeEvent} from "ngx-dropzone";
-import {Store} from "@ngxs/store";
+import {Select, Store} from "@ngxs/store";
 import {AuthState} from "../app-template/store/states/auth.state";
 import {UpdateAdvert} from "./_store/actions/advert.actions";
 import {AdvertState} from "./_store/states/advert.state";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-advert',
@@ -16,6 +17,8 @@ import {AdvertState} from "./_store/states/advert.state";
   styleUrls: ['./advert.component.scss']
 })
 export class AdvertComponent {
+
+  @Select(AdvertState.getCurrentAdvert) currentAdvert$: Observable<AdvertInterface>;
 
   advertArray: AdvertRowInterface[] = [
     {
@@ -143,10 +146,17 @@ export class AdvertComponent {
     this.store.dispatch(new UpdateAdvert({
       ...this.store.selectSnapshot(AdvertState.getAdvertValue),
       [item.type]: value.key
-    }))
+    }));
   }
 
   async sendData(): Promise<void> {
+    if (this.store.selectSnapshot(AdvertState.getCurrentAdvert)) {
+      const id = this.store.selectSnapshot(AdvertState.getCurrentAdvert).id;
+      await this.db.collection('apartment').doc(id).update(
+        this.store.selectSnapshot(AdvertState.getAdvertValue),
+      )
+      return;
+    }
     await this.db.collection('apartment').add({
       ...this.store.selectSnapshot(AdvertState.getAdvertValue),
       userEmail: this.store.selectSnapshot(AuthState.getUser).email,

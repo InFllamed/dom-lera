@@ -21,13 +21,15 @@
             <ng-container *ngIf="item.elementType === advertElementType.input">
 
               <input type="text"
+                     [value]="((currentAdvert$ | async) && (currentAdvert$ | async)[item.type]) ?? null"
                      (input)="updateValue(item, $event.target.value)" [placeholder]="item.placeholder">
 
             </ng-container>
 
             <ng-container *ngIf="item.elementType === advertElementType.textArea">
 
-              <textarea (input)="updateValue(item, $event.target.value)" [placeholder]="item.placeholder"
+              <textarea [value]="((currentAdvert$ | async) && (currentAdvert$ | async)[item.type]) ?? null"
+                        (input)="updateValue(item, $event.target.value)" [placeholder]="item.placeholder"
                         [maxLength]="1000"></textarea>
 
             </ng-container>

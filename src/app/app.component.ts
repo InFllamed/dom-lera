@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngxs/store";
 import {SetUser} from "./app-template/store/actions/auth.actions";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {InitAdverts} from "./basic/_store/actions/popular.actions";
 
 @Component({
   selector: 'app-root',
@@ -20,5 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    console.log('init');
+    await this.store.dispatch(new InitAdverts()).toPromise();
   }
 }

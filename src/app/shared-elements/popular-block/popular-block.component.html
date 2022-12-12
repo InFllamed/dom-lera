@@ -8,6 +8,13 @@
 
         <div class="popular__item-img">
           <img [src]="item.img" [alt]="item.name">
+
+          <div *ngIf="router.url.includes('profile')" class="popular__hover">
+
+            <button (click)="edit(item)">Редагувати</button>
+            <button (click)="delete(item)">Видалити</button>
+
+          </div>
         </div>
 
         <div class="popular__item-block">

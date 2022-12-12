@@ -5,6 +5,7 @@ import {AppTemplateComponent} from "./app-template/app-template.component";
 import {BasicComponent} from "./basic/basic.component";
 import {AdvertComponent} from "./advert/advert.component";
 import {SingleAdvertComponent} from "./single-advert/single-advert.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 export const routes: Routes = [
   {
@@ -27,6 +28,11 @@ export const routes: Routes = [
         path: 'single',
         data: {title: 'single'},
         component: SingleAdvertComponent
+      },
+      {
+        path: 'profile',
+        data: {title: 'profile'},
+        component: ProfileComponent
       }
     ]
   }
