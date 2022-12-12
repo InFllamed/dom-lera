@@ -5,7 +5,6 @@ import {ClickOutsideDirective} from './_directives/click-outside.directive';
 import {FilterPipe} from './_pipes/filter.pipe';
 import {PopupComponent} from './popup/popup.component';
 import {PopularBlockComponent} from './popular-block/popular-block.component';
-import {PaginationComponent} from './pagination/pagination.component';
 import {NgxPaginationModule} from "ngx-pagination";
 
 
@@ -16,7 +15,6 @@ import {NgxPaginationModule} from "ngx-pagination";
     FilterPipe,
     PopupComponent,
     PopularBlockComponent,
-    PaginationComponent
   ],
   exports: [
     CustomSelectComponent,

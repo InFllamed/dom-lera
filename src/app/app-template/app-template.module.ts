@@ -11,6 +11,9 @@ import {SharedElementsModule} from "../shared-elements/shared-elements.module";
 import {FormsModule} from "@angular/forms";
 import {AdvertComponent} from "../advert/advert.component";
 import {NgxDropzoneModule} from "ngx-dropzone";
+import {SingleAdvertComponent} from "../single-advert/single-advert.component";
+import {SingleSidebarComponent} from "../single-advert/single-sidebar/single-sidebar.component";
+import {ProfileComponent} from "../profile/profile.component";
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import {NgxDropzoneModule} from "ngx-dropzone";
     NavComponent,
     FooterComponent,
     MainComponent,
-    AdvertComponent
+    AdvertComponent,
+    SingleAdvertComponent,
+    SingleSidebarComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

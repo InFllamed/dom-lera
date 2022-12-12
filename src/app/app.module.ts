@@ -13,17 +13,11 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {environment} from "../environments/environment";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
-import {SingleAdvertComponent} from './single-advert/single-advert.component';
-import {SingleSidebarComponent} from './single-advert/single-sidebar/single-sidebar.component';
 import {SharedElementsModule} from "./shared-elements/shared-elements.module";
-import {ProfileComponent} from './profile/profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SingleAdvertComponent,
-    SingleSidebarComponent,
-    ProfileComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
